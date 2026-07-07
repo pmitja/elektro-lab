@@ -1,26 +1,285 @@
-@import "tailwindcss";
+/* 1:1 port of the design export's global CSS (Amperix .dc.html files). */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+body {
+  margin: 0;
+  background: #f5f6f8;
+  -webkit-font-smoothing: antialiased;
+}
+summary::-webkit-details-marker {
+  display: none;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.amx-mobile-menu {
+  display: none;
+  position: relative;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.amx-mobile-menu summary {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(11, 21, 38, 0.14);
+  border-radius: 11px;
+  color: #0b1526;
+  cursor: pointer;
+  list-style: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.amx-mobile-menu summary:hover {
+  background: rgba(11, 21, 38, 0.04);
+  border-color: rgba(11, 21, 38, 0.24);
+}
+
+.amx-mobile-menu summary:focus-visible,
+.amx-mobile-nav-link:focus-visible {
+  outline: 3px solid rgba(255, 201, 0, 0.72);
+  outline-offset: 3px;
+}
+
+.amx-close-icon {
+  display: none;
+}
+
+.amx-mobile-menu[open] .amx-menu-icon {
+  display: none;
+}
+
+.amx-mobile-menu[open] .amx-close-icon {
+  display: block;
+}
+
+@keyframes amxMenuOverlayIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes amxMenuLinkIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.amx-mobile-nav-panel {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100dvh - 70px);
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 34px 24px calc(104px + env(safe-area-inset-bottom));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 246, 248, 0.98)),
+    #ffffff;
+  border-top: 1px solid rgba(11, 21, 38, 0.08);
+  box-shadow: 0 24px 64px rgba(11, 21, 38, 0.18);
+  overflow-y: auto;
+  animation: amxMenuOverlayIn 0.24s ease-out both;
+}
+
+.amx-mobile-nav-link {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  border-bottom: 1px solid rgba(11, 21, 38, 0.08);
+  color: #0b1526;
+  font: 650 28px "Space Grotesk", "Instrument Sans", sans-serif;
+  text-decoration: none;
+  opacity: 0;
+  animation: amxMenuLinkIn 0.3s ease-out both;
+  transition:
+    padding 0.2s ease,
+    color 0.2s ease;
+}
+
+.amx-mobile-nav-link:nth-child(1) {
+  animation-delay: 0.04s;
+}
+
+.amx-mobile-nav-link:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.amx-mobile-nav-link:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.amx-mobile-nav-link:nth-child(4) {
+  animation-delay: 0.16s;
+}
+
+.amx-mobile-nav-link:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.amx-mobile-nav-link::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  opacity: 0.28;
+  transform: rotate(45deg);
+}
+
+.amx-mobile-nav-link:hover {
+  padding-left: 10px;
+  color: #0b1526;
+}
+
+.amx-mobile-nav-link.is-active {
+  color: #0b1526;
+}
+
+.amx-mobile-nav-link.is-active::after {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffc900;
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amx-mobile-nav-panel,
+  .amx-mobile-nav-link {
+    animation: none;
+  }
+
+  .amx-mobile-nav-link {
+    opacity: 1;
+  }
+}
+
+.rv {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+}
+.rv-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes amxPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 201, 0, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(255, 201, 0, 0);
+  }
+}
+.amx-dot {
+  animation: amxPulse 2.2s infinite;
+}
+
+@keyframes amxMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 980px) {
+  .amx-stats {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .amx-gallery {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .amx-gallery > * {
+    height: 180px !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .amx-nav {
+    display: none !important;
+  }
+  .amx-tel {
+    display: none !important;
+  }
+  .amx-header-cta {
+    display: none !important;
+  }
+  .amx-mobile-menu {
+    display: block;
+  }
+  .amx-hero {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+    padding-top: 40px !important;
+    padding-bottom: 48px !important;
+  }
+  .amx-2col {
+    grid-template-columns: 1fr !important;
+  }
+  .amx-bar {
+    display: flex !important;
+  }
+  body {
+    padding-bottom: 70px;
+  }
+}
+
+/* Hover/focus states from the export's style-hover / style-focus attributes.
+   !important so they win over the element's inline base styles. */
+.hv-bg-yellow:hover {
+  background: #edb900 !important;
+}
+.hv-bg-navy:hover {
+  background: #1b2a47 !important;
+}
+.hv-border-strong:hover {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+.hv-border-soft:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+.hv-text-navy:hover {
+  color: #0b1526 !important;
+}
+.hv-text-yellow:hover {
+  color: #ffc900 !important;
+}
+.hv-card:hover {
+  box-shadow: 0 14px 34px rgba(11, 21, 38, 0.1) !important;
+  transform: translateY(-3px) !important;
+}
+.fc-navy:focus {
+  border-color: #0b1526 !important;
 }
