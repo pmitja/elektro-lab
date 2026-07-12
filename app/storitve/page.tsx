@@ -6,7 +6,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import { GeneratedIcon } from "@/components/GeneratedMedia";
-import ImageSlot from "@/components/ImageSlot";
 import RevealInit from "@/components/RevealInit";
 import HeroGsap from "@/components/HeroGsap";
 
@@ -69,24 +68,24 @@ export default function Storitve() {
           <h2 style={s("font:700 clamp(28px,3.2vw,38px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 44px")}>
             Kaj <span style={s("background:linear-gradient(transparent 58%,#FFC900 58%)")}>izvajamo</span>?
           </h2>
-          <div className="amx-2col" style={s("display:grid;grid-template-columns:1fr 1fr;gap:18px")}>
+          <div className="services-grid">
             {STORITVE.map((item) => (
-              <div key={item.st} style={s("display:flex;gap:20px;background:linear-gradient(180deg,#F5F6F8 0%,#F5F6F8 68%,rgba(245,246,248,.76) 100%);border:1px solid rgba(11,21,38,.06);border-radius:18px;padding:28px 26px 22px;overflow:hidden")}>
-                <span style={s("flex:none;font:700 15px 'Space Grotesk',sans-serif;color:#B08A00;padding-top:3px")}>{item.st}</span>
-                <div style={s("display:flex;flex-direction:column;gap:9px;min-width:0;flex:1")}>
-                  <h3 style={s("font:600 19px 'Space Grotesk',sans-serif;letter-spacing:-0.01em;margin:0")}>{item.naslov}</h3>
-                  <p style={s("font:400 14.5px/1.65 'Instrument Sans',sans-serif;color:#47536B;margin:0")}>{item.tekst}</p>
-                  <div style={s("height:92px;margin:10px 0 0;display:flex;align-items:flex-end;justify-content:flex-end;opacity:.22;pointer-events:none")}>
-                    <GeneratedIcon name={item.icon} alt="" size={104} />
+              <article key={item.st} className="service-card">
+                <div className="service-card__top">
+                  <span className="service-card__number">{item.st}</span>
+                  <div className="service-card__icon" aria-hidden="true">
+                    <GeneratedIcon name={item.icon} alt="" size={128} collection="icons-v2" />
                   </div>
                 </div>
-              </div>
+                <h3>{item.naslov}</h3>
+                <p>{item.tekst}</p>
+              </article>
             ))}
           </div>
-          <div className="amx-2col" style={s("display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:44px")}>
-            <ImageSlot shape="rounded" radius={16} placeholder="Foto: elektroinštalacije v novogradnji" style={{ width: "100%", height: 230, display: "block" }} />
-            <ImageSlot shape="rounded" radius={16} placeholder="Foto: urejena električna omarica" style={{ width: "100%", height: 230, display: "block" }} />
-            <ImageSlot shape="rounded" radius={16} placeholder="Foto: montaža razsvetljave" style={{ width: "100%", height: 230, display: "block" }} />
+          <div className="service-assurance" aria-label="Način dela">
+            <p><strong>01</strong><span><b>Ogled in dogovor</b>Najprej preverimo stanje in vaše potrebe.</span></p>
+            <p><strong>02</strong><span><b>Jasna izvedba</b>Delo načrtujemo pregledno in brez nepotrebnih zapletov.</span></p>
+            <p><strong>03</strong><span><b>Varen zaključek</b>Poskrbimo za urejeno, preverjeno in zanesljivo rešitev.</span></p>
           </div>
         </div>
       </section>

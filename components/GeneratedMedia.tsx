@@ -6,15 +6,17 @@ export function GeneratedIcon({
   alt,
   size = 31,
   style,
+  collection = "icons",
 }: {
   name: string;
   alt: string;
   size?: number;
   style?: CSSProperties;
+  collection?: "icons" | "icons-v2";
 }) {
   return (
     <Image
-      src={`/generated/icons/${name}.png`}
+      src={`/generated/${collection}/${name}.png`}
       alt={alt}
       width={size}
       height={size}

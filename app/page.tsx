@@ -226,15 +226,15 @@ export default function Home() {
           <h2 style={s("font:700 clamp(28px,3.2vw,38px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 44px;text-align:center")}>
             Kaj lahko <span style={s("background:linear-gradient(transparent 58%,#FFC900 58%)")}>uredimo</span> za vas?
           </h2>
-          <div style={s("display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px")}>
+          <div className="home-services-grid">
             {STORITVE.map((item) => (
-              <Link key={item.naslov} href="/storitve" className="hv-card" style={s("display:flex;flex-direction:column;gap:14px;background:#fff;border:1px solid rgba(11,21,38,.07);border-radius:18px;padding:26px 24px;text-decoration:none;color:#0B1526;box-shadow:0 1px 2px rgba(11,21,38,.04);transition:box-shadow .2s,transform .2s")}>
-                <span style={s("width:48px;height:48px;border-radius:12px;background:#0B1526;display:flex;align-items:center;justify-content:center")}>
-                  <GeneratedIcon name={item.icon} alt="" size={34} />
+              <Link key={item.naslov} href="/storitve" className="home-service-card hv-card">
+                <span className="home-service-card__icon" aria-hidden="true">
+                  <GeneratedIcon name={item.icon} alt="" size={112} collection="icons-v2" />
                 </span>
-                <span style={s("font:600 17.5px 'Space Grotesk',sans-serif;letter-spacing:-0.01em")}>{item.naslov}</span>
-                <span style={s("font:400 14px/1.6 'Instrument Sans',sans-serif;color:#47536B;flex:1")}>{item.tekst}</span>
-                <span style={s("display:inline-flex;align-items:center;gap:7px;font:600 13.5px 'Instrument Sans',sans-serif;color:#0B1526")}>
+                <span className="home-service-card__title">{item.naslov}</span>
+                <span className="home-service-card__copy">{item.tekst}</span>
+                <span className="home-service-card__link">
                   Več o storitvah
                   <Arrow size={13} stroke="#B08A00" width={2.6} />
                 </span>
