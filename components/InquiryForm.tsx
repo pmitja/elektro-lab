@@ -20,8 +20,7 @@ const STORITVE = [
 
 const inputStyle = s("width:100%;padding:12px 13px;border:1px solid #D9DEE7;border-radius:10px;font:400 14.5px 'Instrument Sans',sans-serif;color:#0B1526;outline:none;background:#fff");
 
-const LEADS_API_URL = "/api/leads";
-const COMPANY_ID = "11111111-1111-4111-8111-111111111111";
+const LEADS_API_URL = "https://app.obrtio.si/api/forms/a0b2fdf6-20a5-4cdb-a958-30b500709001/submissions";
 
 // The white inquiry card from the export's Domov/Kontakt hero.
 export default function InquiryForm({ intro, note, id = "povprasevanje" }: { intro: string; note: string; id?: string }) {
@@ -62,20 +61,19 @@ export default function InquiryForm({ intro, note, id = "povprasevanje" }: { int
     setSubmitting(true);
     setError(null);
     try {
+      const formData = new FormData();
+      formData.set("name", f.ime);
+      formData.set("phone", f.tel);
+      formData.set("email", f.email);
+      formData.set("location", f.lokacija);
+      formData.set("service", f.storitev);
+      formData.set("message", f.opis);
+      formData.set("privacyConsent", "on");
+      if (f.marketingConsent) formData.set("marketingConsent", "on");
+
       const res = await fetch(LEADS_API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          companyId: COMPANY_ID,
-          name: f.ime,
-          phone: f.tel,
-          email: f.email,
-          location: f.lokacija,
-          service: f.storitev,
-          message: f.opis,
-          privacyConsent: f.privacyConsent,
-          marketingConsent: f.marketingConsent,
-        }),
+        body: formData,
       });
 
       if (res.ok) {
