@@ -443,3 +443,66 @@ summary::-webkit-details-marker {
 .fc-navy:focus {
   border-color: #0b1526 !important;
 }
+.inquiry-consent {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: start;
+  gap: 11px;
+  min-height: 44px;
+  padding: 10px 11px;
+  border: 1px solid #e1e5ec;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.inquiry-consent:hover {
+  border-color: #c4cad5;
+  background: #fafbfc;
+}
+
+.inquiry-consent:has(.inquiry-checkbox:checked) {
+  border-color: #e2b300;
+  background: #fffbeb;
+}
+
+.inquiry-checkbox {
+  appearance: none;
+  display: grid;
+  place-content: center;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  border: 1.5px solid #9aa4b5;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inquiry-checkbox::before {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border: solid #0b1526;
+  border-width: 0 0 2px 2px;
+  opacity: 0;
+  transform: translateY(-1px) rotate(-45deg) scale(0.7);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.inquiry-checkbox:checked {
+  border-color: #d5a900;
+  background: #ffc900;
+}
+
+.inquiry-checkbox:checked::before {
+  opacity: 1;
+  transform: translateY(-1px) rotate(-45deg) scale(1);
+}
+
+.inquiry-checkbox:focus-visible {
+  outline: 2px solid #0b1526;
+  outline-offset: 3px;
+}

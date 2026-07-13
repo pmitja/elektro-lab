@@ -137,14 +137,14 @@ export default function InquiryForm({ intro, note, id = "povprasevanje" }: { int
               <span style={s("font:600 12.5px 'Instrument Sans',sans-serif;color:#47536B")}>Kratek opis projekta</span>
               <textarea value={f.opis} onChange={set("opis")} rows={3} placeholder="Na kratko opišite, kaj želite urediti …" className="fc-navy" style={{ ...inputStyle, resize: "vertical", minHeight: 74 }} />
             </label>
-            <label style={s("display:flex;align-items:flex-start;gap:9px;cursor:pointer")}>
-              <input type="checkbox" checked={f.privacyConsent} onChange={setCheckbox("privacyConsent")} style={s("margin-top:2px;width:16px;height:16px;flex:none")} />
+            <label className="inquiry-consent">
+              <input type="checkbox" checked={f.privacyConsent} onChange={setCheckbox("privacyConsent")} className="inquiry-checkbox" />
               <span style={s("font:400 13px/1.5 'Instrument Sans',sans-serif;color:#47536B")}>
                 Strinjam se z obdelavo podatkov za namen obravnave povpraševanja. *
               </span>
             </label>
-            <label style={s("display:flex;align-items:flex-start;gap:9px;cursor:pointer")}>
-              <input type="checkbox" checked={f.marketingConsent} onChange={setCheckbox("marketingConsent")} style={s("margin-top:2px;width:16px;height:16px;flex:none")} />
+            <label className="inquiry-consent">
+              <input type="checkbox" checked={f.marketingConsent} onChange={setCheckbox("marketingConsent")} className="inquiry-checkbox" />
               <span style={s("font:400 13px/1.5 'Instrument Sans',sans-serif;color:#47536B")}>
                 Želim prejemati obvestila o akcijah, novostih in posebnih ponudbah.
               </span>
