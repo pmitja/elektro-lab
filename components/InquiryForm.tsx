@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import s from "@/lib/s";
 
 const STORITVE = [
@@ -37,23 +37,26 @@ export default function InquiryForm({ intro, note, id = "povprasevanje" }: { int
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const formStartedAt = useRef<number | null>(null);
 
   const set =
     (k: "ime" | "tel" | "email" | "lokacija" | "storitev" | "opis") =>
     (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+      formStartedAt.current ??= Date.now();
       setF((prev) => ({ ...prev, [k]: e.target.value }));
       setError(null);
     };
 
   const setCheckbox =
     (k: "privacyConsent" | "marketingConsent") => (e: ChangeEvent<HTMLInputElement>) => {
+      formStartedAt.current ??= Date.now();
       setF((prev) => ({ ...prev, [k]: e.target.checked }));
       setError(null);
     };
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!f.ime.trim() || !f.tel.trim() || !f.email.trim() || !f.lokacija.trim() || !f.storitev || !f.privacyConsent) {
+    if (!f.ime.trim() || !f.tel.trim() || !f.email.trim() || !f.storitev || !f.opis.trim() || !f.privacyConsent) {
       setError("Prosimo, izpolnite vsa obvezna polja.");
       return;
     }
@@ -69,12 +72,16 @@ export default function InquiryForm({ intro, note, id = "povprasevanje" }: { int
       formData.set("service", f.storitev);
       formData.set("message", f.opis);
       formData.set("privacyConsent", "on");
+      formData.set("website", "");
+      formData.set("formStartedAt", String(formStartedAt.current ?? Date.now()));
       if (f.marketingConsent) formData.set("marketingConsent", "on");
 
       const res = await fetch(LEADS_API_URL, {
         method: "POST",
         body: formData,
       });
+
+      const data = await res.json().catch(() => null);
 
       if (res.ok) {
         setSent(true);
@@ -86,7 +93,7 @@ export default function InquiryForm({ intro, note, id = "povprasevanje" }: { int
       } else if (res.status === 403) {
         setError("Prišlo je do napake pri pošiljanju. Prosimo, kontaktirajte nas neposredno.");
       } else {
-        setError("Prosimo, izpolnite vsa obvezna polja.");
+        setError(data?.message ?? "Povpraševanja trenutno ni bilo mogoče poslati.");
       }
     } catch {
       setError("Prišlo je do napake pri pošiljanju. Prosimo, poskusite znova.");
@@ -105,26 +112,26 @@ export default function InquiryForm({ intro, note, id = "povprasevanje" }: { int
             <div className="amx-2col" style={s("display:grid;grid-template-columns:1fr 1fr;gap:13px")}>
               <label style={s("display:flex;flex-direction:column;gap:6px")}>
                 <span style={s("font:600 12.5px 'Instrument Sans',sans-serif;color:#47536B")}>Ime in priimek *</span>
-                <input type="text" value={f.ime} onChange={set("ime")} placeholder="Janez Novak" className="fc-navy" style={inputStyle} />
+                <input type="text" value={f.ime} onChange={set("ime")} placeholder="Janez Novak" required autoComplete="name" className="fc-navy" style={inputStyle} />
               </label>
               <label style={s("display:flex;flex-direction:column;gap:6px")}>
                 <span style={s("font:600 12.5px 'Instrument Sans',sans-serif;color:#47536B")}>Telefonska številka *</span>
-                <input type="tel" value={f.tel} onChange={set("tel")} placeholder="040 000 000" className="fc-navy" style={inputStyle} />
+                <input type="tel" value={f.tel} onChange={set("tel")} placeholder="040 000 000" required autoComplete="tel" className="fc-navy" style={inputStyle} />
               </label>
             </div>
             <div className="amx-2col" style={s("display:grid;grid-template-columns:1fr 1fr;gap:13px")}>
               <label style={s("display:flex;flex-direction:column;gap:6px")}>
                 <span style={s("font:600 12.5px 'Instrument Sans',sans-serif;color:#47536B")}>E-mail naslov *</span>
-                <input type="email" value={f.email} onChange={set("email")} placeholder="ime@email.si" className="fc-navy" style={inputStyle} />
+                <input type="email" value={f.email} onChange={set("email")} placeholder="ime@email.si" required autoComplete="email" className="fc-navy" style={inputStyle} />
               </label>
               <label style={s("display:flex;flex-direction:column;gap:6px")}>
-                <span style={s("font:600 12.5px 'Instrument Sans',sans-serif;color:#47536B")}>Lokacija izvedbe *</span>
-                <input type="text" value={f.lokacija} onChange={set("lokacija")} placeholder="npr. Maribor, Tezno" className="fc-navy" style={inputStyle} />
+                <span style={s("font:600 12.5px 'Instrument Sans',sans-serif;color:#47536B")}>Lokacija izvedbe</span>
+                <input type="text" value={f.lokacija} onChange={set("lokacija")} placeholder="npr. Maribor, Tezno" autoComplete="address-level2" className="fc-navy" style={inputStyle} />
               </label>
             </div>
             <label style={s("display:flex;flex-direction:column;gap:6px")}>
               <span style={s("font:600 12.5px 'Instrument Sans',sans-serif;color:#47536B")}>Vrsta storitve *</span>
-              <select value={f.storitev} onChange={set("storitev")} className="fc-navy" style={{ ...inputStyle, appearance: "auto" }}>
+              <select value={f.storitev} onChange={set("storitev")} required className="fc-navy" style={{ ...inputStyle, appearance: "auto" }}>
                 <option value="">Izberite storitev …</option>
                 {STORITVE.map((o) => (
                   <option key={o} value={o}>
@@ -134,11 +141,11 @@ export default function InquiryForm({ intro, note, id = "povprasevanje" }: { int
               </select>
             </label>
             <label style={s("display:flex;flex-direction:column;gap:6px")}>
-              <span style={s("font:600 12.5px 'Instrument Sans',sans-serif;color:#47536B")}>Kratek opis projekta</span>
-              <textarea value={f.opis} onChange={set("opis")} rows={3} placeholder="Na kratko opišite, kaj želite urediti …" className="fc-navy" style={{ ...inputStyle, resize: "vertical", minHeight: 74 }} />
+              <span style={s("font:600 12.5px 'Instrument Sans',sans-serif;color:#47536B")}>Kratek opis projekta *</span>
+              <textarea value={f.opis} onChange={set("opis")} rows={3} placeholder="Na kratko opišite, kaj želite urediti …" required className="fc-navy" style={{ ...inputStyle, resize: "vertical", minHeight: 74 }} />
             </label>
             <label className="inquiry-consent">
-              <input type="checkbox" checked={f.privacyConsent} onChange={setCheckbox("privacyConsent")} className="inquiry-checkbox" />
+              <input type="checkbox" checked={f.privacyConsent} onChange={setCheckbox("privacyConsent")} required className="inquiry-checkbox" />
               <span style={s("font:400 13px/1.5 'Instrument Sans',sans-serif;color:#47536B")}>
                 Strinjam se z obdelavo podatkov za namen obravnave povpraševanja. *
               </span>
@@ -150,7 +157,7 @@ export default function InquiryForm({ intro, note, id = "povprasevanje" }: { int
               </span>
             </label>
             {error && (
-              <div style={s("background:#FDF0F0;border:1px solid #EFC7C7;border-radius:10px;padding:11px 14px;font:500 13.5px 'Instrument Sans',sans-serif;color:#A53B3B")}>
+              <div role="alert" aria-live="polite" style={s("background:#FDF0F0;border:1px solid #EFC7C7;border-radius:10px;padding:11px 14px;font:500 13.5px 'Instrument Sans',sans-serif;color:#A53B3B")}>
                 {error}
               </div>
             )}
