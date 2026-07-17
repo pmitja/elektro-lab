@@ -13,6 +13,25 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+:root {
+  --brand-navy: #020817;
+  --brand-amber: #ffb400;
+  --brand-blue: #159cff;
+}
+
+::selection {
+  color: #020817;
+  background: #ffb400;
+}
+
+.brand-logo {
+  isolation: isolate;
+}
+
+.hv-text-light:hover {
+  color: #fff !important;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -26,7 +45,7 @@ body {
   padding: 26px;
   overflow: hidden;
   background: #f5f6f8;
-  border: 1px solid rgba(11, 21, 38, 0.08);
+  border: 1px solid rgba(2, 8, 23, 0.08);
   border-radius: 18px;
 }
 
@@ -51,7 +70,7 @@ body {
   flex: 0 0 88px;
   overflow: hidden;
   background: #fff;
-  border: 1px solid rgba(11, 21, 38, 0.08);
+  border: 1px solid rgba(2, 8, 23, 0.08);
   border-radius: 16px;
 }
 
@@ -63,7 +82,7 @@ body {
 
 .service-card h3 {
   margin: 0 0 10px;
-  color: #0b1526;
+  color: #020817;
   font: 600 19px/1.25 "Space Grotesk", sans-serif;
   letter-spacing: -0.01em;
 }
@@ -81,7 +100,7 @@ body {
   margin-top: 44px;
   padding: 26px 28px;
   color: #fff;
-  background: #0b1526;
+  background: #020817;
   border-radius: 18px;
 }
 
@@ -97,7 +116,7 @@ body {
 
 .service-assurance p:first-child { border-left: 0; padding-left: 0; }
 .service-assurance p:last-child { padding-right: 0; }
-.service-assurance strong { color: #ffc900; font: 700 13px "Space Grotesk", sans-serif; }
+.service-assurance strong { color: #ffb400; font: 700 13px "Space Grotesk", sans-serif; }
 .service-assurance span { display: flex; flex-direction: column; gap: 5px; }
 .service-assurance b { color: #fff; font: 600 15px "Space Grotesk", sans-serif; }
 
@@ -113,12 +132,12 @@ body {
   flex-direction: column;
   gap: 14px;
   padding: 24px;
-  color: #0b1526;
+  color: #020817;
   text-decoration: none;
   background: #fff;
-  border: 1px solid rgba(11, 21, 38, 0.08);
+  border: 1px solid rgba(2, 8, 23, 0.08);
   border-radius: 18px;
-  box-shadow: 0 1px 2px rgba(11, 21, 38, 0.04);
+  box-shadow: 0 1px 2px rgba(2, 8, 23, 0.04);
   transition: box-shadow 0.2s, transform 0.2s;
 }
 
@@ -128,7 +147,7 @@ body {
   display: block;
   overflow: hidden;
   background: #fff;
-  border: 1px solid rgba(11, 21, 38, 0.09);
+  border: 1px solid rgba(2, 8, 23, 0.09);
   border-radius: 15px;
 }
 
@@ -157,7 +176,7 @@ body {
 }
 
 .home-service-card:focus-visible {
-  outline: 3px solid rgba(255, 201, 0, 0.7);
+  outline: 3px solid rgba(255, 180, 0, 0.7);
   outline-offset: 3px;
 }
 
@@ -187,9 +206,9 @@ summary::-webkit-details-marker {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(11, 21, 38, 0.14);
+  border: 1px solid rgba(21, 156, 255, 0.38);
   border-radius: 11px;
-  color: #0b1526;
+  color: #fff;
   cursor: pointer;
   list-style: none;
   transition:
@@ -198,13 +217,13 @@ summary::-webkit-details-marker {
 }
 
 .amx-mobile-menu summary:hover {
-  background: rgba(11, 21, 38, 0.04);
-  border-color: rgba(11, 21, 38, 0.24);
+  background: rgba(21, 156, 255, 0.12);
+  border-color: rgba(21, 156, 255, 0.72);
 }
 
 .amx-mobile-menu summary:focus-visible,
 .amx-mobile-nav-link:focus-visible {
-  outline: 3px solid rgba(255, 201, 0, 0.72);
+  outline: 3px solid rgba(21, 156, 255, 0.86);
   outline-offset: 3px;
 }
 
@@ -255,10 +274,10 @@ summary::-webkit-details-marker {
   gap: 10px;
   padding: 34px 24px calc(104px + env(safe-area-inset-bottom));
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 246, 248, 0.98)),
-    #ffffff;
-  border-top: 1px solid rgba(11, 21, 38, 0.08);
-  box-shadow: 0 24px 64px rgba(11, 21, 38, 0.18);
+    radial-gradient(circle at 88% 8%, rgba(21, 156, 255, 0.16), transparent 32%),
+    linear-gradient(180deg, #020817, #071329);
+  border-top: 1px solid rgba(21, 156, 255, 0.24);
+  box-shadow: 0 24px 64px rgba(2, 8, 23, 0.18);
   overflow-y: auto;
   animation: amxMenuOverlayIn 0.24s ease-out both;
 }
@@ -269,8 +288,8 @@ summary::-webkit-details-marker {
   align-items: center;
   justify-content: space-between;
   padding: 0 4px;
-  border-bottom: 1px solid rgba(11, 21, 38, 0.08);
-  color: #0b1526;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.86);
   font: 650 28px "Space Grotesk", "Instrument Sans", sans-serif;
   text-decoration: none;
   opacity: 0;
@@ -312,11 +331,11 @@ summary::-webkit-details-marker {
 
 .amx-mobile-nav-link:hover {
   padding-left: 10px;
-  color: #0b1526;
+  color: #fff;
 }
 
 .amx-mobile-nav-link.is-active {
-  color: #0b1526;
+  color: #fff;
 }
 
 .amx-mobile-nav-link.is-active::after {
@@ -324,7 +343,7 @@ summary::-webkit-details-marker {
   height: 12px;
   border: 0;
   border-radius: 999px;
-  background: #ffc900;
+  background: #ffb400;
   opacity: 1;
   transform: none;
 }
@@ -355,10 +374,10 @@ summary::-webkit-details-marker {
 @keyframes amxPulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(255, 201, 0, 0.55);
+    box-shadow: 0 0 0 0 rgba(255, 180, 0, 0.55);
   }
   70% {
-    box-shadow: 0 0 0 7px rgba(255, 201, 0, 0);
+    box-shadow: 0 0 0 7px rgba(255, 180, 0, 0);
   }
 }
 .amx-dot {
@@ -431,17 +450,17 @@ summary::-webkit-details-marker {
   border-color: rgba(255, 255, 255, 0.35) !important;
 }
 .hv-text-navy:hover {
-  color: #0b1526 !important;
+  color: #020817 !important;
 }
 .hv-text-yellow:hover {
-  color: #ffc900 !important;
+  color: #ffb400 !important;
 }
 .hv-card:hover {
-  box-shadow: 0 14px 34px rgba(11, 21, 38, 0.1) !important;
+  box-shadow: 0 14px 34px rgba(2, 8, 23, 0.1) !important;
   transform: translateY(-3px) !important;
 }
 .fc-navy:focus {
-  border-color: #0b1526 !important;
+  border-color: #020817 !important;
 }
 .inquiry-consent {
   display: grid;
@@ -485,7 +504,7 @@ summary::-webkit-details-marker {
   content: "";
   width: 10px;
   height: 6px;
-  border: solid #0b1526;
+  border: solid #020817;
   border-width: 0 0 2px 2px;
   opacity: 0;
   transform: translateY(-1px) rotate(-45deg) scale(0.7);
@@ -494,7 +513,7 @@ summary::-webkit-details-marker {
 
 .inquiry-checkbox:checked {
   border-color: #d5a900;
-  background: #ffc900;
+  background: #ffb400;
 }
 
 .inquiry-checkbox:checked::before {
@@ -503,6 +522,6 @@ summary::-webkit-details-marker {
 }
 
 .inquiry-checkbox:focus-visible {
-  outline: 2px solid #0b1526;
+  outline: 2px solid #020817;
   outline-offset: 3px;
 }

@@ -18,7 +18,7 @@ const STORITVE = [
   "Drugo",
 ];
 
-const inputStyle = s("width:100%;padding:12px 13px;border:1px solid #D9DEE7;border-radius:10px;font:400 14.5px 'Instrument Sans',sans-serif;color:#0B1526;outline:none;background:#fff");
+const inputStyle = s("width:100%;padding:12px 13px;border:1px solid #D9DEE7;border-radius:10px;font:400 14.5px 'Instrument Sans',sans-serif;color:#020817;outline:none;background:#fff");
 
 const LEADS_API_URL = "https://www.obrtio.si/api/forms/5c048e51-040c-4ffb-90d7-1981436f42bb/submissions";
 
@@ -161,7 +161,7 @@ export default function InquiryForm({ intro, note, id = "povprasevanje" }: { int
                 {error}
               </div>
             )}
-            <button type="submit" disabled={submitting} className="hv-bg-yellow" style={s(`width:100%;background:#FFC900;color:#0B1526;font:600 15.5px 'Instrument Sans',sans-serif;padding:15px;border-radius:12px;border:none;cursor:${submitting ? "default" : "pointer"};opacity:${submitting ? 0.7 : 1}`)}>
+            <button type="submit" disabled={submitting} className="hv-bg-yellow" style={s(`width:100%;background:#FFB400;color:#020817;font:600 15.5px 'Instrument Sans',sans-serif;padding:15px;border-radius:12px;border:none;cursor:${submitting ? "default" : "pointer"};opacity:${submitting ? 0.7 : 1}`)}>
               {submitting ? "Pošiljanje …" : "Pošlji povpraševanje"}
             </button>
             <p style={s("font:400 12px/1.5 'Instrument Sans',sans-serif;color:#8A93A6;margin:0;text-align:center")}>{note}</p>

@@ -26,7 +26,7 @@ const STORITVE = [
 
 export default function Footer() {
   return (
-    <footer style={s("background:#0B1526;color:#fff")}>
+    <footer style={s("background:#020817;color:#fff")}>
       <div style={s("max-width:1200px;margin:0 auto;padding:64px 24px 28px")}>
         <div style={s("display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)")}>
           <div style={s("display:flex;flex-direction:column;gap:14px")}>
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
         </div>
         <div style={s("display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-top:24px")}>
-          <span style={s("font:400 13px 'Instrument Sans',sans-serif;color:rgba(255,255,255,.45)")}>© 2026 Elektro Lab. Vse pravice pridržane.</span>
+          <span style={s("font:400 13px 'Instrument Sans',sans-serif;color:rgba(255,255,255,.45)")}>© 2026 El-Janko Mont. Vse pravice pridržane.</span>
           <span style={s("font:400 13px 'Instrument Sans',sans-serif;color:rgba(255,255,255,.45)")}>Elektro storitve · Maribor in okolica</span>
         </div>
       </div>

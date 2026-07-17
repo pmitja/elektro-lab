@@ -5,10 +5,11 @@ import { instrumentSerif } from "@/lib/fonts";
 import { TELEFON, EMAIL } from "@/lib/site";
 import ImageSlot from "@/components/ImageSlot";
 import InquiryForm from "@/components/InquiryForm";
+import Logo from "@/components/Logo";
 
 export const metadata: Metadata = {
-  title: { absolute: "Predlog prenove domače strani | Elektro Lab" },
-  description: "Interni predogled prenovljene domače strani Elektro Lab.",
+  title: { absolute: "Predlog prenove domače strani | El-Janko Mont" },
+  description: "Interni predogled prenovljene domače strani El-Janko Mont.",
   robots: { index: false, follow: false },
 };
 
@@ -18,8 +19,8 @@ const CREAM_DEEP = "#EFE5CF";
 const INK = "#211A0B";
 const INK_SOFT = "#6B6250";
 const HAIR = "rgba(33,26,11,.16)";
-const YELLOW = "#FFC900";
-const NAVY = "#0B1526";
+const YELLOW = "#FFB400";
+const NAVY = "#020817";
 
 const MONO = "ui-monospace,'SF Mono',Menlo,monospace";
 const EYEBROW = `font:500 11.5px ${MONO};letter-spacing:.24em;text-transform:uppercase`;
@@ -83,16 +84,14 @@ export default function RedesignPreview() {
         .rdx-faq[open] .rdx-plus { transform: rotate(45deg); }
         .rdx-plus { transition: transform .2s; display: inline-block; }
         .rdx-srv { transition: background .2s; }
-        .rdx-srv:hover { background: rgba(255,201,0,.14); }
+        .rdx-srv:hover { background: rgba(255,180,0,.14); }
       `}</style>
 
       {/* HEADER — cream, hairline, editorial */}
       <header style={s(`position:sticky;top:0;z-index:50;background:${CREAM};border-bottom:1px solid ${HAIR}`)}>
         <div style={s("max-width:1240px;margin:0 auto;padding:0 28px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px")}>
-          <Link href="/" style={s(`display:flex;align-items:baseline;gap:2px;text-decoration:none;color:${INK}`)}>
-            <span style={s("font:400 24px var(--font-serif)")}>Elektro</span>
-            <span style={s("font:italic 400 24px var(--font-serif)")}>Lab</span>
-            <span style={s(`width:7px;height:7px;border-radius:50%;background:${YELLOW};margin-left:5px;align-self:center`)}></span>
+          <Link href="/" aria-label="El-Janko Mont – domov" style={s(`display:flex;align-items:center;text-decoration:none;color:${INK}`)}>
+            <Logo size={18} />
           </Link>
           <nav className="rdx-nav" style={s("gap:30px;align-items:center")}>
             {[["Storitve", "/storitve"], ["Reference", "/reference"], ["O nas", "/o-nas"], ["Kontakt", "/kontakt"]].map(([label, href]) => (
@@ -238,7 +237,7 @@ export default function RedesignPreview() {
             {IZJAVE.map((iz) => (
               <div key={iz.avtor} style={s("position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);min-height:360px;display:flex;flex-direction:column")}>
                 <ImageSlot shape="rect" placeholder={iz.slot} style={{ position: "absolute", inset: 0, background: "rgba(255,255,255,.05)" }} />
-                <div style={s("position:relative;margin-top:auto;background:rgba(11,21,38,.72);backdrop-filter:blur(8px);padding:26px 24px;display:flex;flex-direction:column;gap:12px")}>
+                <div style={s("position:relative;margin-top:auto;background:rgba(2,8,23,.72);backdrop-filter:blur(8px);padding:26px 24px;display:flex;flex-direction:column;gap:12px")}>
                   <p style={s("font:400 20px/1.35 var(--font-serif);color:#fff;margin:0")}>“{iz.tekst}”</p>
                   <span style={s(`font:500 11.5px ${MONO};letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)`)}>{iz.avtor}</span>
                 </div>
@@ -299,13 +298,13 @@ export default function RedesignPreview() {
       {/* FOOTER — slim editorial */}
       <footer style={s(`background:${CREAM};border-top:1px solid ${HAIR}`)}>
         <div style={s("max-width:1240px;margin:0 auto;padding:34px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px")}>
-          <span style={s("font:400 19px var(--font-serif)")}>Elektro <span style={s("font-style:italic")}>Lab</span></span>
+          <span style={s("font:500 19px var(--font-serif)")}>El-Janko Mont</span>
           <nav style={s("display:flex;flex-wrap:wrap;gap:24px")}>
             {[["Storitve", "/storitve"], ["Reference", "/reference"], ["O nas", "/o-nas"], ["Kontakt", "/kontakt"]].map(([label, href]) => (
               <Link key={href} href={href} className="rdx-link" style={s("font:500 13.5px var(--font-body)")}>{label}</Link>
             ))}
           </nav>
-          <span style={s(`font:500 11.5px ${MONO};letter-spacing:.14em;text-transform:uppercase;color:${INK_SOFT}`)}>© 2026 Elektro Lab — Maribor</span>
+          <span style={s(`font:500 11.5px ${MONO};letter-spacing:.14em;text-transform:uppercase;color:${INK_SOFT}`)}>© 2026 El-Janko Mont — Maribor</span>
         </div>
       </footer>
     </div>

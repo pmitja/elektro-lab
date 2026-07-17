@@ -12,7 +12,7 @@ import RevealInit from "@/components/RevealInit";
 import HeroGsap from "@/components/HeroGsap";
 
 export const metadata: Metadata = {
-  title: { absolute: "Električar Maribor in okolica | Elektro storitve | Elektro Lab" },
+  title: { absolute: "Električar Maribor in okolica | Elektro storitve | El-Janko Mont" },
   description:
     "Zanesljive elektro storitve v Mariboru in okolici. Hišne in industrijske inštalacije, polnilnice, meritve, omarice, razsvetljava in elektro vzdrževanje.",
   alternates: { canonical: "/" },
@@ -71,11 +71,11 @@ const MARQUEE_RUN = Array.from({ length: 8 }, () => MARQUEE).flat();
 
 function Check() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC900" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFB400" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
   );
 }
 
-function Arrow({ size = 15, stroke = "#0B1526", width = 2.4 }: { size?: number; stroke?: string; width?: number }) {
+function Arrow({ size = 15, stroke = "#020817", width = 2.4 }: { size?: number; stroke?: string; width?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth={width} strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
   );
@@ -90,7 +90,7 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ElectricalContractor",
-            name: "Elektro Lab",
+            name: "El-Janko Mont",
             telephone: TELEFON,
             email: EMAIL,
             areaServed: "Maribor in okolica",
@@ -103,16 +103,16 @@ export default function Home() {
       <Header active="/" ctaHref="#povprasevanje" />
 
       {/* HERO */}
-      <section style={s("background:#0B1526;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:46px 46px;position:relative;overflow:hidden")}>
+      <section style={s("background:#020817;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:46px 46px;position:relative;overflow:hidden")}>
         <div data-gsap-hero-glow style={s("position:absolute;top:-160px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,201,0,.13),transparent 65%)")}></div>
         <div data-gsap-hero className="amx-hero" style={s("max-width:1200px;margin:0 auto;padding:72px 24px 64px;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:start;position:relative")}>
           <div data-gsap-hero-copy>
             <div style={s("display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 14px;margin-bottom:26px")}>
-              <span className="amx-dot" style={s("width:7px;height:7px;border-radius:50%;background:#FFC900")}></span>
+              <span className="amx-dot" style={s("width:7px;height:7px;border-radius:50%;background:#FFB400")}></span>
               <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.75)")}>Elektro storitve · Maribor in okolica</span>
             </div>
             <h1 style={s("font:700 clamp(38px,4.6vw,58px)/1.06 'Space Grotesk',sans-serif;letter-spacing:-0.025em;color:#fff;margin:0 0 20px")}>
-              Električar za <span style={s("color:#FFC900")}>Maribor</span> in okolico
+              Električar za <span style={s("color:#FFB400")}>Maribor</span> in okolico
             </h1>
             <p style={s("font:400 17px/1.65 'Instrument Sans',sans-serif;color:rgba(255,255,255,.72);margin:0 0 30px;max-width:540px")}>
               Zanesljive elektro storitve za domove, stanovanja, novogradnje in podjetja. Poskrbimo za varne, urejene in strokovno izvedene elektro rešitve — od manjših montaž do celovitih elektroinštalacij.
@@ -126,7 +126,7 @@ export default function Home() {
               ))}
             </div>
             <div style={s("display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px")}>
-              <a href="#povprasevanje" className="hv-bg-yellow" style={s("display:inline-flex;align-items:center;gap:8px;background:#FFC900;color:#0B1526;font:600 15.5px 'Instrument Sans',sans-serif;padding:15px 28px;border-radius:12px;text-decoration:none")}>
+              <a href="#povprasevanje" className="hv-bg-yellow" style={s("display:inline-flex;align-items:center;gap:8px;background:#FFB400;color:#020817;font:600 15.5px 'Instrument Sans',sans-serif;padding:15px 28px;border-radius:12px;text-decoration:none")}>
                 Pošlji povpraševanje
                 <Arrow />
               </a>
@@ -138,7 +138,7 @@ export default function Home() {
               {HERO_TAGS.map((tag, i) => (
                 <span key={tag} style={{ display: "contents" }}>
                   <span style={s("font:500 13px 'Space Grotesk',sans-serif;color:rgba(255,255,255,.5)")}>{tag}</span>
-                  {i < HERO_TAGS.length - 1 && <span style={s("color:#FFC900;font-size:12px")}>•</span>}
+                  {i < HERO_TAGS.length - 1 && <span style={s("color:#FFB400;font-size:12px")}>•</span>}
                 </span>
               ))}
             </div>
@@ -157,7 +157,7 @@ export default function Home() {
       {/* STATISTIČNA VRSTICA */}
       <section style={s("background:#fff")}>
         <div style={s("max-width:1200px;margin:0 auto;padding:0 24px")}>
-          <div className="amx-stats" style={s("background:#0C182E;border-radius:22px;margin-top:-34px;position:relative;z-index:5;box-shadow:0 20px 50px rgba(11,21,38,.18);display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:24px;align-items:center;padding:26px 30px")}>
+          <div className="amx-stats" style={s("background:#0C182E;border-radius:22px;margin-top:-34px;position:relative;z-index:5;box-shadow:0 20px 50px rgba(2,8,23,.18);display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:24px;align-items:center;padding:26px 30px")}>
             <div style={s("display:flex;align-items:center;gap:16px")}>
               <ImageSlot shape="circle" placeholder="Foto ekipe" style={{ width: 62, height: 62, flex: "none" }} />
               <span style={s("font:600 15.5px/1.4 'Space Grotesk',sans-serif;color:#fff")}>
@@ -167,15 +167,15 @@ export default function Home() {
               </span>
             </div>
             <div style={s("display:flex;flex-direction:column;gap:4px;border-left:1px solid rgba(255,255,255,.14);padding-left:24px")}>
-              <span style={s("font:700 30px 'Space Grotesk',sans-serif;color:#FFC900;letter-spacing:-0.02em")}>10+</span>
+              <span style={s("font:700 30px 'Space Grotesk',sans-serif;color:#FFB400;letter-spacing:-0.02em")}>10+</span>
               <span style={s("font:500 13px 'Instrument Sans',sans-serif;color:rgba(255,255,255,.65)")}>let izkušenj z elektro deli</span>
             </div>
             <div style={s("display:flex;flex-direction:column;gap:4px;border-left:1px solid rgba(255,255,255,.14);padding-left:24px")}>
-              <span style={s("font:700 30px 'Space Grotesk',sans-serif;color:#FFC900;letter-spacing:-0.02em")}>300+</span>
+              <span style={s("font:700 30px 'Space Grotesk',sans-serif;color:#FFB400;letter-spacing:-0.02em")}>300+</span>
               <span style={s("font:500 13px 'Instrument Sans',sans-serif;color:rgba(255,255,255,.65)")}>izvedenih projektov</span>
             </div>
             <div style={s("display:flex;flex-direction:column;gap:4px;border-left:1px solid rgba(255,255,255,.14);padding-left:24px")}>
-              <span style={s("font:700 30px 'Space Grotesk',sans-serif;color:#FFC900;letter-spacing:-0.02em")}>100%</span>
+              <span style={s("font:700 30px 'Space Grotesk',sans-serif;color:#FFB400;letter-spacing:-0.02em")}>100%</span>
               <span style={s("font:500 13px 'Instrument Sans',sans-serif;color:rgba(255,255,255,.65)")}>preverjena in varna izvedba</span>
             </div>
           </div>
@@ -187,17 +187,17 @@ export default function Home() {
         <div className="amx-2col" style={s("max-width:1200px;margin:0 auto;padding:88px 24px;display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center")}>
           <div>
             <div style={s("display:flex;align-items:center;gap:9px;margin-bottom:16px")}>
-              <span style={s("width:9px;height:9px;background:#FFC900;border-radius:2px")}></span>
+              <span style={s("width:9px;height:9px;background:#FFB400;border-radius:2px")}></span>
               <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A93A6")}>Celostni pristop</span>
             </div>
             <h2 style={s("font:700 clamp(28px,3.2vw,38px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 26px")}>
-              Elektro storitve <span style={s("background:linear-gradient(transparent 58%,#FFC900 58%)")}>na enem mestu</span>
+              Elektro storitve <span style={s("background:linear-gradient(transparent 58%,#FFB400 58%)")}>na enem mestu</span>
             </h2>
             <div style={s("position:relative")}>
               <ImageSlot shape="rounded" radius={18} placeholder="Foto: elektro dela na objektu" style={{ width: "100%", height: 300, display: "block" }} />
-              <div style={s("position:absolute;bottom:-16px;right:-14px;background:#FFC900;border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(11,21,38,.2)")}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#0B1526"><polygon points="13,2 4,14 11,14 9,22 20,9 13,9"></polygon></svg>
-                <span style={s("font:600 13.5px 'Space Grotesk',sans-serif;color:#0B1526")}>Maribor in okolica</span>
+              <div style={s("position:absolute;bottom:-16px;right:-14px;background:#FFB400;border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(2,8,23,.2)")}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#020817"><polygon points="13,2 4,14 11,14 9,22 20,9 13,9"></polygon></svg>
+                <span style={s("font:600 13.5px 'Space Grotesk',sans-serif;color:#020817")}>Maribor in okolica</span>
               </div>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function Home() {
             <p style={s("font:400 16.5px/1.7 'Instrument Sans',sans-serif;color:#47536B;margin:0 0 26px")}>
               Podjetjem in fizičnim strankam v Mariboru in okolici pomagamo pri novogradnjah, prenovah, vzdrževanju, montaži, meritvah, razsvetljavi in sodobnih elektro rešitvah.
             </p>
-            <Link href="/storitve" style={s("display:inline-flex;align-items:center;gap:8px;font:600 15px 'Instrument Sans',sans-serif;color:#0B1526;text-decoration:none;border-bottom:2px solid #FFC900;padding-bottom:3px")}>
+            <Link href="/storitve" style={s("display:inline-flex;align-items:center;gap:8px;font:600 15px 'Instrument Sans',sans-serif;color:#020817;text-decoration:none;border-bottom:2px solid #FFB400;padding-bottom:3px")}>
               Poglej storitve
               <Arrow size={14} />
             </Link>
@@ -220,11 +220,11 @@ export default function Home() {
       <section style={s("background:#F5F6F8;background-image:linear-gradient(180deg,rgba(245,246,248,.9),rgba(245,246,248,.96)),url('/generated/soft-electrical-bg.webp');background-size:cover;background-position:center")}>
         <div style={s("max-width:1200px;margin:0 auto;padding:88px 24px")}>
           <div style={s("display:flex;align-items:center;gap:9px;margin-bottom:16px;justify-content:center")}>
-            <span style={s("width:9px;height:9px;background:#FFC900;border-radius:2px")}></span>
+            <span style={s("width:9px;height:9px;background:#FFB400;border-radius:2px")}></span>
             <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A93A6")}>Storitve</span>
           </div>
           <h2 style={s("font:700 clamp(28px,3.2vw,38px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 44px;text-align:center")}>
-            Kaj lahko <span style={s("background:linear-gradient(transparent 58%,#FFC900 58%)")}>uredimo</span> za vas?
+            Kaj lahko <span style={s("background:linear-gradient(transparent 58%,#FFB400 58%)")}>uredimo</span> za vas?
           </h2>
           <div className="home-services-grid">
             {STORITVE.map((item) => (
@@ -250,7 +250,7 @@ export default function Home() {
           <ImageSlot shape="rounded" radius={20} placeholder="Foto: elektroinštalacije v novogradnji" style={{ width: "100%", height: 400 }} />
           <div>
             <div style={s("display:flex;align-items:center;gap:9px;margin-bottom:16px")}>
-              <span style={s("width:9px;height:9px;background:#FFC900;border-radius:2px")}></span>
+              <span style={s("width:9px;height:9px;background:#FFB400;border-radius:2px")}></span>
               <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A93A6")}>Za zasebne stranke</span>
             </div>
             <h2 style={s("font:700 clamp(26px,3vw,36px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 18px")}>Za domove, stanovanja in novogradnje</h2>
@@ -260,7 +260,7 @@ export default function Home() {
             <p style={s("font:400 16px/1.7 'Instrument Sans',sans-serif;color:#47536B;margin:0 0 26px")}>
               Pomagamo pri razpeljavi kablov, montaži vtičnic in stikal, razsvetljavi, električnih omaricah, meritvah in drugih elektro delih, ki jih potrebuje vaš dom.
             </p>
-            <a href="#povprasevanje" className="hv-bg-navy" style={s("display:inline-flex;align-items:center;gap:8px;background:#0B1526;color:#fff;font:600 15px 'Instrument Sans',sans-serif;padding:14px 24px;border-radius:12px;text-decoration:none")}>
+            <a href="#povprasevanje" className="hv-bg-navy" style={s("display:inline-flex;align-items:center;gap:8px;background:#020817;color:#fff;font:600 15px 'Instrument Sans',sans-serif;padding:14px 24px;border-radius:12px;text-decoration:none")}>
               Pošlji povpraševanje za dom
             </a>
           </div>
@@ -272,7 +272,7 @@ export default function Home() {
         <div className="amx-2col" style={s("max-width:1200px;margin:0 auto;padding:88px 24px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center")}>
           <div>
             <div style={s("display:flex;align-items:center;gap:9px;margin-bottom:16px")}>
-              <span style={s("width:9px;height:9px;background:#FFC900;border-radius:2px")}></span>
+              <span style={s("width:9px;height:9px;background:#FFB400;border-radius:2px")}></span>
               <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)")}>Za podjetja</span>
             </div>
             <h2 style={s("font:700 clamp(26px,3vw,36px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 18px;color:#fff")}>Elektro rešitve za podjetja</h2>
@@ -282,7 +282,7 @@ export default function Home() {
             <p style={s("font:400 16px/1.7 'Instrument Sans',sans-serif;color:rgba(255,255,255,.72);margin:0 0 26px")}>
               Poskrbimo za nove inštalacije, prenove, vzdrževanje, meritve, razsvetljavo in nadgradnje obstoječih sistemov.
             </p>
-            <a href="#povprasevanje" className="hv-bg-yellow" style={s("display:inline-flex;align-items:center;gap:8px;background:#FFC900;color:#0B1526;font:600 15px 'Instrument Sans',sans-serif;padding:14px 24px;border-radius:12px;text-decoration:none")}>
+            <a href="#povprasevanje" className="hv-bg-yellow" style={s("display:inline-flex;align-items:center;gap:8px;background:#FFB400;color:#020817;font:600 15px 'Instrument Sans',sans-serif;padding:14px 24px;border-radius:12px;text-decoration:none")}>
               Pošlji povpraševanje za podjetje
             </a>
           </div>
@@ -296,15 +296,15 @@ export default function Home() {
       <section style={s("background:#fff")}>
         <div style={s("max-width:1200px;margin:0 auto;padding:88px 24px")}>
           <div style={s("display:flex;align-items:center;gap:9px;margin-bottom:16px;justify-content:center")}>
-            <span style={s("width:9px;height:9px;background:#FFC900;border-radius:2px")}></span>
+            <span style={s("width:9px;height:9px;background:#FFB400;border-radius:2px")}></span>
             <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A93A6")}>Proces</span>
           </div>
           <h2 style={s("font:700 clamp(28px,3.2vw,38px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 44px;text-align:center")}>
-            Kako poteka <span style={s("background:linear-gradient(transparent 58%,#FFC900 58%)")}>sodelovanje</span>?
+            Kako poteka <span style={s("background:linear-gradient(transparent 58%,#FFB400 58%)")}>sodelovanje</span>?
           </h2>
           <div style={s("display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px")}>
             {PROCES.map((k) => (
-              <div key={k.st} style={s("display:flex;flex-direction:column;gap:12px;border-top:3px solid #FFC900;background:#F5F6F8;border-radius:0 0 16px 16px;padding:22px 20px 24px")}>
+              <div key={k.st} style={s("display:flex;flex-direction:column;gap:12px;border-top:3px solid #FFB400;background:#F5F6F8;border-radius:0 0 16px 16px;padding:22px 20px 24px")}>
                 <span style={s("font:700 15px 'Space Grotesk',sans-serif;color:#B08A00")}>{k.st}</span>
                 <span style={s("font:600 16.5px 'Space Grotesk',sans-serif;letter-spacing:-0.01em")}>{k.naslov}</span>
                 <span style={s("font:400 13.5px/1.6 'Instrument Sans',sans-serif;color:#47536B")}>{k.tekst}</span>
@@ -319,19 +319,19 @@ export default function Home() {
         <div className="amx-2col" style={s("max-width:1200px;margin:0 auto;padding:88px 24px;display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center")}>
           <div>
             <div style={s("display:flex;align-items:center;gap:9px;margin-bottom:16px")}>
-              <span style={s("width:9px;height:9px;background:#FFC900;border-radius:2px")}></span>
-              <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A93A6")}>Zakaj Elektro Lab</span>
+              <span style={s("width:9px;height:9px;background:#FFB400;border-radius:2px")}></span>
+              <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A93A6")}>Zakaj El-Janko Mont</span>
             </div>
-            <h2 style={s("font:700 clamp(26px,3vw,36px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 18px")}>Zakaj izbrati Elektro Lab?</h2>
+            <h2 style={s("font:700 clamp(26px,3vw,36px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 18px")}>Zakaj izbrati El-Janko Mont?</h2>
             <p style={s("font:400 16px/1.7 'Instrument Sans',sans-serif;color:#47536B;margin:0")}>
               Ker pri elektriki ni prostora za površno izvedbo. Naš cilj je, da so elektro dela narejena varno, pregledno in tako, da vam dolgoročno služijo brez skrbi.
             </p>
           </div>
           <div className="amx-2col" style={s("display:grid;grid-template-columns:1fr 1fr;gap:12px")}>
             {PREDNOSTI.map((p) => (
-              <div key={p} style={s("display:flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(11,21,38,.07);border-radius:13px;padding:16px 18px")}>
+              <div key={p} style={s("display:flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(2,8,23,.07);border-radius:13px;padding:16px 18px")}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B08A00" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={{ flex: "none" }}><path d="M20 6L9 17l-5-5"></path></svg>
-                <span style={s("font:500 14.5px 'Instrument Sans',sans-serif;color:#0B1526")}>{p}</span>
+                <span style={s("font:500 14.5px 'Instrument Sans',sans-serif;color:#020817")}>{p}</span>
               </div>
             ))}
           </div>
@@ -342,11 +342,11 @@ export default function Home() {
       <section style={s("background:#fff")}>
         <div style={s("max-width:1200px;margin:0 auto;padding:88px 24px 0")}>
           <div style={s("display:flex;align-items:center;gap:9px;margin-bottom:16px;justify-content:center")}>
-            <span style={s("width:9px;height:9px;background:#FFC900;border-radius:2px")}></span>
+            <span style={s("width:9px;height:9px;background:#FFB400;border-radius:2px")}></span>
             <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A93A6")}>Galerija</span>
           </div>
           <h2 style={s("font:700 clamp(28px,3.2vw,38px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 40px;text-align:center")}>
-            Naše delo <span style={s("background:linear-gradient(transparent 58%,#FFC900 58%)")}>v živo</span>
+            Naše delo <span style={s("background:linear-gradient(transparent 58%,#FFB400 58%)")}>v živo</span>
           </h2>
           <div className="amx-gallery" style={s("display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:16px;align-items:center")}>
             <ImageSlot shape="rounded" radius={16} placeholder="Foto: ekipa na terenu" style={{ width: "100%", height: 300, display: "block" }} />
@@ -363,7 +363,7 @@ export default function Home() {
           <div className="amx-2col" style={s("display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:36px")}>
             <div>
               <div style={s("display:flex;align-items:center;gap:9px;margin-bottom:16px")}>
-                <span style={s("width:9px;height:9px;background:#FFC900;border-radius:2px")}></span>
+                <span style={s("width:9px;height:9px;background:#FFB400;border-radius:2px")}></span>
                 <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A93A6")}>Reference</span>
               </div>
               <h2 style={s("font:700 clamp(26px,3vw,36px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0")}>Izvedeni projekti</h2>
@@ -372,7 +372,7 @@ export default function Home() {
               <p style={s("font:400 15.5px/1.65 'Instrument Sans',sans-serif;color:#47536B;margin:0 0 18px")}>
                 Oglejte si primere izvedenih elektro del za domove, stanovanja, novogradnje in poslovne prostore. Reference prikazujejo način dela, natančnost izvedbe in raznolikost projektov.
               </p>
-              <Link href="/reference" style={s("display:inline-flex;align-items:center;gap:8px;font:600 15px 'Instrument Sans',sans-serif;color:#0B1526;text-decoration:none;border-bottom:2px solid #FFC900;padding-bottom:3px")}>
+              <Link href="/reference" style={s("display:inline-flex;align-items:center;gap:8px;font:600 15px 'Instrument Sans',sans-serif;color:#020817;text-decoration:none;border-bottom:2px solid #FFB400;padding-bottom:3px")}>
                 Poglej reference
                 <Arrow size={14} />
               </Link>
@@ -390,16 +390,16 @@ export default function Home() {
       <section style={s("background:#F5F6F8")}>
         <div style={s("max-width:820px;margin:0 auto;padding:88px 24px")}>
           <div style={s("display:flex;align-items:center;gap:9px;margin-bottom:16px;justify-content:center")}>
-            <span style={s("width:9px;height:9px;background:#FFC900;border-radius:2px")}></span>
+            <span style={s("width:9px;height:9px;background:#FFB400;border-radius:2px")}></span>
             <span style={s("font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A93A6")}>FAQ</span>
           </div>
           <h2 style={s("font:700 clamp(28px,3.2vw,38px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-0.02em;margin:0 0 36px;text-align:center")}>Pogosta vprašanja</h2>
           <div style={s("display:flex;flex-direction:column;gap:12px")}>
             {FAQ.map((q) => (
-              <details key={q.vprasanje} style={s("background:#fff;border:1px solid rgba(11,21,38,.07);border-radius:14px;padding:0 22px")}>
-                <summary style={s("list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:19px 0;font:600 16px 'Space Grotesk',sans-serif;letter-spacing:-0.01em;color:#0B1526")}>
+              <details key={q.vprasanje} style={s("background:#fff;border:1px solid rgba(2,8,23,.07);border-radius:14px;padding:0 22px")}>
+                <summary style={s("list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:19px 0;font:600 16px 'Space Grotesk',sans-serif;letter-spacing:-0.01em;color:#020817")}>
                   {q.vprasanje}
-                  <span style={s("flex:none;width:26px;height:26px;border-radius:8px;background:#FFC900;display:flex;align-items:center;justify-content:center;font:600 16px 'Space Grotesk',sans-serif;color:#0B1526")}>+</span>
+                  <span style={s("flex:none;width:26px;height:26px;border-radius:8px;background:#FFB400;display:flex;align-items:center;justify-content:center;font:600 16px 'Space Grotesk',sans-serif;color:#020817")}>+</span>
                 </summary>
                 <p style={s("font:400 15px/1.65 'Instrument Sans',sans-serif;color:#47536B;margin:0;padding:0 0 20px;max-width:640px")}>{q.odgovor}</p>
               </details>
@@ -411,7 +411,7 @@ export default function Home() {
       {/* ZAKLJUČNI CTA */}
       <section style={s("background:#fff")}>
         <div style={s("max-width:1200px;margin:0 auto;padding:0 24px 88px")}>
-          <div style={s("background:#0B1526;background-image:linear-gradient(rgba(11,21,38,.86),rgba(11,21,38,.9)),linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),url('/generated/cta-electrical-bg.webp');background-size:cover,46px 46px,46px 46px,cover;background-position:center;border-radius:24px;padding:64px 32px;text-align:center;position:relative;overflow:hidden")}>
+          <div style={s("background:#020817;background-image:linear-gradient(rgba(2,8,23,.86),rgba(2,8,23,.9)),linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),url('/generated/cta-electrical-bg.webp');background-size:cover,46px 46px,46px 46px,cover;background-position:center;border-radius:24px;padding:64px 32px;text-align:center;position:relative;overflow:hidden")}>
             <div style={s("position:absolute;bottom:-180px;left:50%;transform:translateX(-50%);width:600px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,201,0,.12),transparent 65%)")}></div>
             <div style={s("position:relative;display:flex;flex-direction:column;align-items:center;gap:18px")}>
               <h2 style={s("font:700 clamp(28px,3.4vw,42px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-0.02em;color:#fff;margin:0;max-width:640px")}>
@@ -421,7 +421,7 @@ export default function Home() {
                 Pošljite povpraševanje in nam povejte, kaj želite urediti. Pripravili bomo predlog rešitve in se dogovorili za naslednji korak.
               </p>
               <div style={s("display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:10px")}>
-                <a href="#povprasevanje" className="hv-bg-yellow" style={s("display:inline-flex;align-items:center;gap:8px;background:#FFC900;color:#0B1526;font:600 15.5px 'Instrument Sans',sans-serif;padding:15px 28px;border-radius:12px;text-decoration:none")}>
+                <a href="#povprasevanje" className="hv-bg-yellow" style={s("display:inline-flex;align-items:center;gap:8px;background:#FFB400;color:#020817;font:600 15.5px 'Instrument Sans',sans-serif;padding:15px 28px;border-radius:12px;text-decoration:none")}>
                   Pošlji povpraševanje
                 </a>
                 <a href={`tel:${TELEFON}`} className="hv-border-strong" style={s("display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.28);color:#fff;font:600 15.5px 'Instrument Sans',sans-serif;padding:15px 28px;border-radius:12px;text-decoration:none")}>
@@ -434,14 +434,14 @@ export default function Home() {
       </section>
 
       {/* MARQUEE CTA TRAK */}
-      <a href="#povprasevanje" style={s("display:block;background:#FFC900;overflow:hidden;padding:18px 0;text-decoration:none")}>
+      <a href="#povprasevanje" style={s("display:block;background:#FFB400;overflow:hidden;padding:18px 0;text-decoration:none")}>
         <div style={s("display:flex;width:max-content;animation:amxMarquee 34s linear infinite;gap:0")}>
           {[0, 1].map((half) => (
             <div key={half} style={s("display:flex;gap:44px;padding-right:44px")}>
               {MARQUEE_RUN.map((text, index) => (
-                <span key={`${half}-${text}-${index}`} style={s("display:flex;align-items:center;gap:16px;font:700 21px 'Space Grotesk',sans-serif;letter-spacing:-0.01em;color:#0B1526;white-space:nowrap")}>
+                <span key={`${half}-${text}-${index}`} style={s("display:flex;align-items:center;gap:16px;font:700 21px 'Space Grotesk',sans-serif;letter-spacing:-0.01em;color:#020817;white-space:nowrap")}>
                   {text}
-                  <span aria-hidden="true" style={s("font:700 20px 'Space Grotesk',sans-serif;color:#0B1526")}>∞</span>
+                  <span aria-hidden="true" style={s("font:700 20px 'Space Grotesk',sans-serif;color:#020817")}>∞</span>
                 </span>
               ))}
             </div>

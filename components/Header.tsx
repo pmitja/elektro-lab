@@ -50,27 +50,27 @@ export default function Header({ active }: HeaderProps) {
 
   return (
     <>
-      <header style={s("position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,21,38,.08)")}>
+      <header style={s("position:sticky;top:0;z-index:60;background:rgba(2,8,23,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(21,156,255,.22);box-shadow:0 8px 30px rgba(2,8,23,.18)")}>
         <div style={s("max-width:1200px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;gap:28px;position:relative")}>
-          <Link href="/" style={s("display:flex;align-items:center;gap:10px;text-decoration:none;color:#0B1526")}>
+          <Link href="/" aria-label="El-Janko Mont – domov" style={s("display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff")}>
             <Logo size={20} />
           </Link>
           <nav className="amx-nav" style={s("display:flex;gap:26px;margin-left:16px")}>
             {NAV.map((item) =>
               item.href === active ? (
-                <Link key={item.href} href={item.href} aria-current="page" style={s("font:600 14px 'Instrument Sans',sans-serif;color:#0B1526;text-decoration:none;border-bottom:2px solid #FFC900;padding:4px 0")}>
+                <Link key={item.href} href={item.href} aria-current="page" style={s("font:600 14px 'Instrument Sans',sans-serif;color:#fff;text-decoration:none;border-bottom:2px solid #FFB400;padding:4px 0")}>
                   {item.label}
                 </Link>
               ) : (
-                <Link key={item.href} href={item.href} className="hv-text-navy" style={s("font:500 14px 'Instrument Sans',sans-serif;color:#47536B;text-decoration:none;padding:4px 0")}>
+                <Link key={item.href} href={item.href} className="hv-text-light" style={s("font:500 14px 'Instrument Sans',sans-serif;color:rgba(255,255,255,.7);text-decoration:none;padding:4px 0")}>
                   {item.label}
                 </Link>
               )
             )}
           </nav>
           <div style={s("margin-left:auto;display:flex;align-items:center;gap:18px")}>
-            <a className="amx-tel" href={`tel:${TELEFON}`} style={s("display:flex;align-items:center;gap:8px;font:600 14px 'Instrument Sans',sans-serif;color:#0B1526;text-decoration:none")}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0B1526" strokeWidth="2" strokeLinecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z"></path></svg>
+            <a className="amx-tel" href={`tel:${TELEFON}`} style={s("display:flex;align-items:center;gap:8px;font:600 14px 'Instrument Sans',sans-serif;color:#fff;text-decoration:none")}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#159CFF" strokeWidth="2" strokeLinecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z"></path></svg>
               {TELEFON}
             </a>
             <button
@@ -79,7 +79,7 @@ export default function Header({ active }: HeaderProps) {
               aria-haspopup="dialog"
               aria-controls="inquiry-modal"
               onClick={() => setIsInquiryOpen(true)}
-              style={s("display:inline-flex;align-items:center;background:#FFC900;color:#0B1526;font:600 14px 'Instrument Sans',sans-serif;padding:11px 20px;border-radius:11px;text-decoration:none;border:none;cursor:pointer")}
+              style={s("display:inline-flex;align-items:center;background:#FFB400;color:#020817;font:600 14px 'Instrument Sans',sans-serif;padding:11px 20px;border-radius:11px;text-decoration:none;border:none;cursor:pointer")}
             >
               Pošlji povpraševanje
             </button>
@@ -116,7 +116,7 @@ export default function Header({ active }: HeaderProps) {
               setIsInquiryOpen(false);
             }
           }}
-          style={s("position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;background:rgba(11,21,38,.72);padding:24px;overflow-y:auto")}
+          style={s("position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;background:rgba(2,8,23,.72);padding:24px;overflow-y:auto")}
         >
           <div style={s("width:min(100%,620px);position:relative;margin:auto")}>
             <button
@@ -124,7 +124,7 @@ export default function Header({ active }: HeaderProps) {
               type="button"
               aria-label="Zapri povpraševanje"
               onClick={() => setIsInquiryOpen(false)}
-              style={s("position:absolute;top:-14px;right:-14px;z-index:2;width:42px;height:42px;border-radius:999px;border:1px solid rgba(11,21,38,.12);background:#fff;color:#0B1526;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 32px rgba(0,0,0,.25);cursor:pointer")}
+              style={s("position:absolute;top:-14px;right:-14px;z-index:2;width:42px;height:42px;border-radius:999px;border:1px solid rgba(2,8,23,.12);background:#fff;color:#020817;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 32px rgba(0,0,0,.25);cursor:pointer")}
             >
               <X size={20} strokeWidth={2.2} aria-hidden="true" />
             </button>
